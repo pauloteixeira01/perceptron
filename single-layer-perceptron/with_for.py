@@ -1,16 +1,9 @@
-input = [1, 7, 5]
+from sum import sum
+from step_function import step_function
 
+input = [-1, 7, 5]
 weight = [0.8, 0.1, 0]
 
-def sum(input, weight):
-    result = 0
-    for i in range(3):
-        result += input[i] * weight[i]
-    return result
+result = step_function.stepFunction(sum.sum(input, weight))
 
-def stepFunction(sum):
-    if(sum >= 1):
-        return 1
-    return 0
-
-print(stepFunction(sum(input, weight)))
+print(result)

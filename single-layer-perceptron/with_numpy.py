@@ -1,14 +1,11 @@
 import numpy as np
 
-input = np.array([-1, 7, 5])
+from sum import sum_with_dot
+from step_function import step_function
+
+input = np.array([1, 7, 5])
 weight = np.array([0.8, 0.1, 0])
 
-def sum(input, weight):
-    return input.dot(weight)
+result = step_function.stepFunction(sum_with_dot.sum(input, weight))
 
-def stepFunction(sum):
-    if(sum >= 1):
-        return 1
-    return 0
-
-print(stepFunction(sum(input, weight)))
+print(result)
