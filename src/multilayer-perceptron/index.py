@@ -1,8 +1,10 @@
-import numpy as np
+import numpy as np # type: ignore
 
 def sigmoid(sum):
     return 1 / (1 + np.exp(-sum))
 
+def sigmoidDerivative(sigmoidResult):
+    return sigmoidResult * (1 - sigmoidResult) 
 
 inputs = np.array([[0,0], [0, 1], [ 1, 0], [1, 1]])
 outputs = np.array([[0], [1], [1], [0]])
@@ -24,3 +26,4 @@ for time in range(times):
     errorOutput = outputs - output
 
     average = np.mean(np.abs(errorOutput))
+
