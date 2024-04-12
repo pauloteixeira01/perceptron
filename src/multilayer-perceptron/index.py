@@ -24,6 +24,6 @@ for time in range(times):
     output = sigmoid(sumSynapse1)
 
     errorOutput = outputs - output
-
     average = np.mean(np.abs(errorOutput))
-
+    derivativeOutput = sigmoidDerivative(output)
+    deltaOutput = errorOutput * derivativeOutput
