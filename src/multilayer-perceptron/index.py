@@ -15,15 +15,21 @@ weight1 = np.array([[-0.017], [-0.893], [0.148]])
 times = 100
 
 for time in range(times):
-    inputs = inputs
+    inputLayer = inputs
 
-    sumSynapse0 = np.dot(inputs, weight0)
+    sumSynapse0 = np.dot(inputLayer, weight0)
     hiddenLayer = sigmoid(sumSynapse0)
 
     sumSynapse1 = np.dot(hiddenLayer, weight1)
-    output = sigmoid(sumSynapse1)
+    outputLayer = sigmoid(sumSynapse1)
 
-    errorOutput = outputs - output
-    average = np.mean(np.abs(errorOutput))
-    derivativeOutput = sigmoidDerivative(output)
-    deltaOutput = errorOutput * derivativeOutput
+    errorOutputLayer = outputs - outputLayer
+    average = np.mean(np.abs(errorOutputLayer))
+
+    derivativeOutput = sigmoidDerivative(outputLayer)
+    deltaOutput = errorOutputLayer * derivativeOutput
+
+    weight1Transposed = weight1.T
+    deltaOutputWeight = deltaOutput.dot(weight1Transposed)
+    deltaHiddenLayer = deltaOutputWeight * sigmoidDerivative(hiddenLayer)
+    print(deltaHiddenLayer)
